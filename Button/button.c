@@ -10,8 +10,8 @@
     {
         WDTCTL = WDTPW + WDTHOLD; // 关闭看门狗
         P1DIR |= (LED1 + LED2); // 将LED设为输出
-        P1REN |= BUTTON; // 允许使用上拉电阻
-        P1OUT |= BUTTON; // 启用上拉电阻
+        P1REN |= BUTTON; // 允许使用内置电阻
+        P1OUT |= BUTTON; // 设置上拉电阻
         P1OUT &= ~(LED1 + LED2); // 关闭LED
        
         P1IES |= BUTTON; // 高电平到低电平
