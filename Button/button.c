@@ -8,15 +8,15 @@
 
     int main(void)
     {
-        WDTCTL = WDTPW + WDTHOLD; // Stop watchdog timer
-        P1DIR |= (LED1 + LED2); // set leds as outputs
-        P1REN |= BUTTON; // enable internal pullup
-        P1OUT |= BUTTON; // set pullup
-        P1OUT &= ~(LED1 + LED2); // turn off leds
+        WDTCTL = WDTPW + WDTHOLD; // 关闭看门狗
+        P1DIR |= (LED1 + LED2); // 将LED设为输出
+        P1REN |= BUTTON; // 允许使用上拉电阻
+        P1OUT |= BUTTON; // 启用上拉电阻
+        P1OUT &= ~(LED1 + LED2); // 关闭LED
        
-        P1IES |= BUTTON; // high to low
-        P1IE |= BUTTON; // enable interrupt
-        P1IFG &= ~BUTTON; // clear interrupt flag
+        P1IES |= BUTTON; // 高电平到低电平
+        P1IE |= BUTTON; // 允许中断
+        P1IFG &= ~BUTTON; // 清除中断标志位
 
 		__enable_interrupt();
 
